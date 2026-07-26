@@ -1,26 +1,1063 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens — Phase 1 base + Phase 19 + Premium Visual Redesign Sprint.
+ *
+ * Visual language only: warm editorial light, independent charcoal dark,
+ * deep-indigo primary with royal-blue secondary, layered elevation.
+ * No IA / content / route / interaction-contract changes.
+ *
+ * Dark mode: class-based via `.dark` on <html> (next-themes).
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ---- Warm neutral scale (light) — never pure white ---- */
+  --color-neutral-0: #fafaf8; /* page canvas */
+  --color-neutral-50: #f6f5f2; /* recessed / section muted */
+  --color-neutral-100: #eeede9; /* hover wash */
+  --color-neutral-200: #e3e2dd; /* default border */
+  --color-neutral-300: #d0cfc9; /* strong border / disabled */
+  --color-neutral-400: #a8a7a1; /* decorative / placeholder only */
+  --color-neutral-500: #7c7b75; /* large text / decorative */
+  --color-neutral-600: #5a5954; /* secondary text — AA on canvas */
+  --color-neutral-700: #3c3b37; /* body emphasis */
+  --color-neutral-800: #1f1e1b; /* headings */
+  --color-neutral-950: #0c0c0b; /* maximum emphasis */
+
+  /* Section band tones (warm canvas stays #fafaf8 — bands stay near-neutral) */
+  --color-section-muted: #f8f8f6;
+  --color-section-elevated: #fcfcfb;
+
+  /*
+   * 4-level surface hierarchy (page canvas stays #fafaf8):
+   *   0 page     — --color-neutral-0
+   *   1 section  — --card-wash
+   *   2 card     — --card-bg (+ --card-border)
+   *   3 elevated — --card-bg-elevated (highlight cards)
+   */
+  --card-bg: #f2f1ec; /* surface 2 — warm, clearly off the canvas */
+  --card-bg-elevated: #ebeae4; /* surface 3 */
+  --card-bg-hover: #ecebe5;
+  --card-border: #d5d3cb; /* ~7% deeper than card */
+  --card-border-hover: #c8c5bb;
+  --card-highlight: rgba(255, 255, 255, 0.65);
+  --card-shadow-rgb: 45, 42, 36;
+  --card-wash: transparent; /* surface 1 — set per family */
+  --color-card: var(--card-bg);
+
+  /* ---- Accent palette — guide attention, never dominate ---- */
+  --color-accent-50: #eef0f9;
+  --color-accent-600: #2e3a8c; /* deep indigo — primary actions */
+  --color-accent-700: #243078; /* primary hover / pressed */
+  --color-accent-royal: #1d4ed8; /* royal blue — links / secondary accent */
+  --color-accent-indigo: #3730a3; /* rare highlight only */
+
+  /* ---- Semantic ---- */
+  --color-success: #047857; /* emerald */
+  --color-warning: #b45309; /* amber */
+  --color-danger: #be123c; /* rose */
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ---- Elevation scale (consistent product depth) ---- */
+  --shadow-sm: 0 1px 2px rgba(31, 30, 27, 0.03), 0 1px 3px rgba(31, 30, 27, 0.04);
+  --shadow-md: 0 1px 2px rgba(31, 30, 27, 0.04), 0 4px 12px rgba(31, 30, 27, 0.06);
+  --shadow-lg: 0 4px 12px rgba(31, 30, 27, 0.06), 0 16px 36px rgba(31, 30, 27, 0.08);
+  --shadow-hero: 0 8px 24px rgba(31, 30, 27, 0.06), 0 24px 56px rgba(46, 58, 140, 0.08);
+  --shadow-modal: 0 12px 40px rgba(31, 30, 27, 0.12), 0 32px 72px rgba(31, 30, 27, 0.1);
+  /* Back-compat aliases used across components */
+  --shadow-1: var(--shadow-md);
+  --shadow-2: var(--shadow-lg);
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--color-accent-royal) 28%, transparent);
+
+  /* ---- Z-index ---- */
+  --z-index-base: 0;
+  --z-index-sticky: 40;
+  --z-index-overlay: 50;
+  --z-index-dropdown: 60;
+  --z-index-toast: 70;
+
+  /* ---- Opacity ---- */
+  --opacity-disabled: 0.5;
+  --opacity-muted: 0.7;
+  --opacity-hover-surface: 0.95;
+
+  /* ---- Motion — 200–350ms, spring-like, never bounce ---- */
+  --motion-micro: 180ms;
+  --motion-standard: 240ms;
+  --motion-entrance: 320ms;
+  --motion-page: 240ms;
+  --ease-entrance: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Containers ---- */
+  --container-prose: 720px;
+  --container-content: 1120px;
+  --container-wide: 1280px;
+  --container-full: 1440px;
+  --measure-prose: 65ch;
+  --measure-lead: 62ch;
+
+  /* Slimmer bar; circular mark may sit slightly below center */
+  --header-height: 3.25rem;
+
+  /* Sticky header surface — slightly deeper than page canvas, warm stone */
+  --header-surface: #f2f1ec;
+  --header-surface-tint: color-mix(in srgb, var(--header-surface) 92%, var(--color-accent-600) 8%);
+  --header-border: color-mix(in srgb, var(--color-neutral-300) 72%, var(--color-accent-royal) 28%);
+  --header-shadow:
+    0 1px 0 color-mix(in srgb, var(--color-neutral-950) 4%, transparent),
+    0 4px 16px rgba(45, 42, 36, 0.05), 0 12px 28px rgba(45, 42, 36, 0.04);
+
+  /*
+   * Premium editorial type scale — fluid clamp(), one source of truth.
+   * Display 48–56px · H1 36–40 · H2 28–32 · H3 22–24 · H4 18–20
+   * Body large 18 · Body 16 · Caption 14 · Label 12–13
+   * Prefixed `--font-size-*` so Tailwind `--text-*` theme keys stay clear.
+   */
+  --font-size-display: clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem); /* 36→56 */
+  --font-size-h1: clamp(1.875rem, 1.5rem + 1.6vw, 2.5rem); /* 30→40 */
+  --font-size-h2: clamp(1.5rem, 1.3rem + 0.9vw, 2rem); /* 24→32 */
+  --font-size-h3: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem); /* 20→24 */
+  --font-size-h4: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem); /* 18→20 */
+  --font-size-lead: 1.125rem; /* 18 */
+  --font-size-body: 1rem; /* 16 */
+  --font-size-caption: 0.875rem; /* 14 */
+  --font-size-label: 0.75rem; /* 12 */
+  --font-size-label-md: 0.8125rem; /* 13 */
+  --font-size-support: clamp(1.125rem, 1rem + 0.7vw, 1.375rem); /* hero support ~18→22 */
+
+  --leading-display: 1.1;
+  --leading-heading: 1.18;
+  --leading-h3: 1.25;
+  --leading-h4: 1.35;
+  --leading-lead: 1.7;
+  --leading-body: 1.7;
+  --leading-caption: 1.55;
+
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.025em;
+  --tracking-h3: -0.02em;
+  --tracking-h4: -0.015em;
+  --tracking-label: 0.14em;
+
+  --color-text-primary: var(--color-neutral-800);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-support: var(--color-neutral-700);
+  --color-text-muted: var(--color-neutral-600);
+}
+
+/*
+ * Dark palette — designed independently (GitHub/Vercel charcoal depth,
+ * not inverted light). Soft contrast, soft lighting, premium elevation.
+ */
+.dark {
+  --color-neutral-0: #0d1117; /* page */
+  --color-neutral-50: #161b22; /* elevated surface */
+  --color-neutral-100: #1c2129; /* hover surface */
+  --color-neutral-200: #30363d; /* default border */
+  --color-neutral-300: #3d444d; /* strong border */
+  --color-neutral-400: #6e7681; /* placeholder — decorative only */
+  --color-neutral-500: #8b949e; /* large text / decorative */
+  --color-neutral-600: #b1bac4; /* muted/secondary — AA */
+  --color-neutral-700: #d0d7de; /* body */
+  --color-neutral-800: #e6edf3; /* headings */
+  --color-neutral-950: #ffffff; /* maximum emphasis */
+
+  --color-section-muted: #111827;
+  --color-section-elevated: #161b22;
+
+  --card-bg: #1a2028;
+  --card-bg-elevated: #1e2530;
+  --card-bg-hover: #1c232c;
+  --card-border: #3a424d;
+  --card-border-hover: #4a5360;
+  --card-highlight: rgba(255, 255, 255, 0.05);
+  --card-shadow-rgb: 0, 0, 0;
+  --card-wash: transparent;
+  --color-card: var(--card-bg);
+
+  --color-accent-50: #151c33;
+  --color-accent-600: #7b8cff; /* readable indigo on charcoal */
+  --color-accent-700: #9aa8ff;
+  --color-accent-royal: #5b8def;
+  --color-accent-indigo: #818cf8;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #fb7185;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 18px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4), 0 18px 44px rgba(0, 0, 0, 0.38);
+  --shadow-hero: 0 8px 28px rgba(0, 0, 0, 0.45), 0 24px 64px rgba(123, 140, 255, 0.08);
+  --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.55), 0 32px 80px rgba(0, 0, 0, 0.4);
+  --shadow-1: var(--shadow-md);
+  --shadow-2: var(--shadow-lg);
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--color-accent-royal) 38%, transparent);
+
+  /* Softer foregrounds in dark — avoid harsh pure-white headings */
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #b1bac4;
+  --color-text-support: #c9d1d9;
+  --color-text-muted: #b1bac4;
+
+  /* Sticky header — deep charcoal / muted graphite, not pure black */
+  --header-surface: #14191f;
+  --header-surface-tint: color-mix(in srgb, var(--header-surface) 90%, var(--color-accent-600) 10%);
+  --header-border: color-mix(in srgb, var(--color-neutral-200) 78%, var(--color-accent-royal) 22%);
+  --header-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 18px rgba(0, 0, 0, 0.28),
+    0 14px 32px rgba(0, 0, 0, 0.18);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-neutral-0: var(--color-neutral-0);
+  --color-neutral-50: var(--color-neutral-50);
+  --color-neutral-100: var(--color-neutral-100);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-300: var(--color-neutral-300);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-950: var(--color-neutral-950);
+
+  --color-accent-50: var(--color-accent-50);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-royal: var(--color-accent-royal);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+
+  --z-index-base: var(--z-index-base);
+  --z-index-sticky: var(--z-index-sticky);
+  --z-index-overlay: var(--z-index-overlay);
+  --z-index-dropdown: var(--z-index-dropdown);
+  --z-index-toast: var(--z-index-toast);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-hero: var(--shadow-hero);
+  --shadow-modal: var(--shadow-modal);
+  --shadow-1: var(--shadow-1);
+  --shadow-2: var(--shadow-2);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Tailwind font-size utilities mapped to the editorial scale */
+  --text-display: var(--font-size-display);
+  --text-display--line-height: var(--leading-display);
+  --text-h1: var(--font-size-h1);
+  --text-h1--line-height: var(--leading-heading);
+  --text-h2: var(--font-size-h2);
+  --text-h2--line-height: var(--leading-heading);
+  --text-h3: var(--font-size-h3);
+  --text-h3--line-height: var(--leading-h3);
+  --text-h4: var(--font-size-h4);
+  --text-h4--line-height: var(--leading-h4);
+  --text-lead: var(--font-size-lead);
+  --text-lead--line-height: var(--leading-lead);
+  --text-body: var(--font-size-body);
+  --text-body--line-height: var(--leading-body);
+  --text-caption: var(--font-size-caption);
+  --text-caption--line-height: var(--leading-caption);
+  --text-label: var(--font-size-label);
+  --text-label--line-height: 1.4;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-neutral-0);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-body);
+  line-height: var(--leading-body);
+  letter-spacing: -0.011em;
+  transition:
+    background-color var(--motion-standard) ease-out,
+    color var(--motion-standard) ease-out;
+}
+
+/* ---- Editorial type roles (prefer these over ad-hoc sizes) ---- */
+.type-display {
+  font-size: var(--font-size-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.type-h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.type-h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.type-h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--leading-h3);
+  letter-spacing: var(--tracking-h3);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.type-h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--leading-h4);
+  letter-spacing: var(--tracking-h4);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* Hero supporting statement — ~30% less visual weight than Display */
+.type-support {
+  max-width: 34rem;
+  font-size: var(--font-size-support);
+  line-height: 1.4;
+  letter-spacing: -0.018em;
+  font-weight: 500;
+  color: var(--color-text-support);
+}
+
+.type-lead {
+  max-width: var(--measure-lead);
+  font-size: var(--font-size-lead);
+  line-height: var(--leading-lead);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.type-body {
+  font-size: var(--font-size-body);
+  line-height: var(--leading-body);
+  font-weight: 400;
+  color: var(--color-text-support);
+}
+
+.prose-measure {
+  max-width: var(--measure-prose);
+}
+
+.type-caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--leading-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.type-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--font-size-label);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent-600);
+}
+
+/* Field / meta labels — same scale as eyebrow, quieter colour */
+.type-label-muted {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--font-size-label);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.type-metric {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--font-size-h3);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.type-metric-label {
+  font-size: var(--font-size-caption);
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/*
+ * Ambient canvas — soft radial wash + extremely low-opacity film grain.
+ * Pointer-events none; no layout impact; CSS only.
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 95% 60% at 8% -18%, rgba(46, 58, 140, 0.055), transparent 58%),
+    radial-gradient(ellipse 70% 50% at 96% 2%, rgba(29, 78, 216, 0.035), transparent 52%),
+    radial-gradient(ellipse 55% 40% at 50% 105%, rgba(31, 30, 27, 0.028), transparent 60%);
+}
+.dark body::before {
+  background:
+    radial-gradient(ellipse 95% 60% at 6% -18%, rgba(123, 140, 255, 0.12), transparent 58%),
+    radial-gradient(ellipse 65% 45% at 96% 0%, rgba(91, 141, 239, 0.07), transparent 52%),
+    radial-gradient(ellipse 55% 40% at 50% 110%, rgba(0, 0, 0, 0.4), transparent 58%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+.dark body::after {
+  opacity: 0.04;
+}
+
+/* ---- Section rhythm ---- */
+.section-tone-muted {
+  background-color: var(--color-section-muted);
+}
+.section-tone-elevated {
+  background-color: var(--color-section-elevated);
+}
+
+/*
+ * Card colour families — surface 2 fills are ~4–5% deeper than prior;
+ * surface 3 (elevated) ~6–8% deeper. Borders ~7% deeper than card fill.
+ * Section wash (surface 1) stays lighter so cards lift clearly.
+ */
+.card-family-hero {
+  --card-bg: #e8f0f8; /* richer blue-grey */
+  --card-bg-elevated: #dde9f4;
+  --card-bg-hover: #e2ecf6;
+  --card-border: #c5d5e6;
+  --card-border-hover: #b4c8dc;
+  --card-highlight: rgba(255, 255, 255, 0.7);
+  --card-shadow-rgb: 55, 85, 120;
+  --card-wash: color-mix(in srgb, #e8f0f8 32%, var(--color-neutral-0));
+}
+.card-family-experience {
+  --card-bg: #e6f3eb; /* soft sage */
+  --card-bg-elevated: #d8ebe0;
+  --card-bg-hover: #dcefe5;
+  --card-border: #c0d9c9;
+  --card-border-hover: #aecfbb;
+  --card-highlight: rgba(255, 255, 255, 0.7);
+  --card-shadow-rgb: 50, 95, 70;
+  --card-wash: color-mix(in srgb, #e6f3eb 32%, var(--color-neutral-0));
+}
+.card-family-projects {
+  --card-bg: #ebe9f6; /* soft lavender-grey */
+  --card-bg-elevated: #dfdcf1;
+  --card-bg-hover: #e4e1f3;
+  --card-border: #ccc7e3;
+  --card-border-hover: #bbb4d8;
+  --card-highlight: rgba(255, 255, 255, 0.7);
+  --card-shadow-rgb: 80, 70, 120;
+  --card-wash: color-mix(in srgb, #ebe9f6 32%, var(--color-neutral-0));
+}
+.card-family-leadership {
+  --card-bg: #f5ecdf; /* warm champagne */
+  --card-bg-elevated: #efe2cf;
+  --card-bg-hover: #f1e6d5;
+  --card-border: #e0d0b6;
+  --card-border-hover: #d4c1a2;
+  --card-highlight: rgba(255, 255, 255, 0.7);
+  --card-shadow-rgb: 110, 90, 50;
+  --card-wash: color-mix(in srgb, #f5ecdf 32%, var(--color-neutral-0));
+}
+.card-family-ai {
+  --card-bg: #e5f4f7; /* richer mist cyan */
+  --card-bg-elevated: #d5eef3;
+  --card-bg-hover: #daf0f5;
+  --card-border: #bddfe6;
+  --card-border-hover: #a8d2dc;
+  --card-highlight: rgba(255, 255, 255, 0.7);
+  --card-shadow-rgb: 45, 100, 115;
+  --card-wash: color-mix(in srgb, #e5f4f7 32%, var(--color-neutral-0));
+}
+.card-family-contact {
+  --card-bg: #eceef2; /* soft cool grey */
+  --card-bg-elevated: #e2e5eb;
+  --card-bg-hover: #e6e9ef;
+  --card-border: #cfd3db;
+  --card-border-hover: #bdc3ce;
+  --card-highlight: rgba(255, 255, 255, 0.7);
+  --card-shadow-rgb: 60, 68, 82;
+  --card-wash: color-mix(in srgb, #eceef2 32%, var(--color-neutral-0));
+}
+
+.dark .card-family-hero {
+  --card-bg: #161e28;
+  --card-bg-elevated: #1a2430;
+  --card-bg-hover: #18222c;
+  --card-border: #2f3d4e;
+  --card-border-hover: #3d4e62;
+  --card-highlight: rgba(140, 175, 230, 0.07);
+  --card-shadow-rgb: 0, 0, 0;
+  --card-wash: color-mix(in srgb, #161e28 45%, var(--color-neutral-0));
+}
+.dark .card-family-experience {
+  --card-bg: #161f1a;
+  --card-bg-elevated: #1a261f;
+  --card-bg-hover: #18231d;
+  --card-border: #2d4034;
+  --card-border-hover: #3a5243;
+  --card-highlight: rgba(140, 200, 165, 0.06);
+  --card-shadow-rgb: 0, 0, 0;
+  --card-wash: color-mix(in srgb, #161f1a 45%, var(--color-neutral-0));
+}
+.dark .card-family-projects {
+  --card-bg: #1a1824;
+  --card-bg-elevated: #201d2c;
+  --card-bg-hover: #1d1a28;
+  --card-border: #35304a;
+  --card-border-hover: #443e5c;
+  --card-highlight: rgba(170, 155, 230, 0.06);
+  --card-shadow-rgb: 0, 0, 0;
+  --card-wash: color-mix(in srgb, #1a1824 45%, var(--color-neutral-0));
+}
+.dark .card-family-leadership {
+  --card-bg: #201c16;
+  --card-bg-elevated: #272119;
+  --card-bg-hover: #231f18;
+  --card-border: #3d3528;
+  --card-border-hover: #4d4333;
+  --card-highlight: rgba(230, 195, 130, 0.06);
+  --card-shadow-rgb: 0, 0, 0;
+  --card-wash: color-mix(in srgb, #201c16 45%, var(--color-neutral-0));
+}
+.dark .card-family-ai {
+  --card-bg: #151f23;
+  --card-bg-elevated: #19262b;
+  --card-bg-hover: #172327;
+  --card-border: #2c3e44;
+  --card-border-hover: #3a5058;
+  --card-highlight: rgba(140, 205, 220, 0.06);
+  --card-shadow-rgb: 0, 0, 0;
+  --card-wash: color-mix(in srgb, #151f23 45%, var(--color-neutral-0));
+}
+.dark .card-family-contact {
+  --card-bg: #181b21;
+  --card-bg-elevated: #1c2028;
+  --card-bg-hover: #1a1e25;
+  --card-border: #323842;
+  --card-border-hover: #424a56;
+  --card-highlight: rgba(180, 190, 205, 0.05);
+  --card-shadow-rgb: 0, 0, 0;
+  --card-wash: color-mix(in srgb, #181b21 45%, var(--color-neutral-0));
+}
+
+/* Surface 1 — section/footer wash (cards inherit tokens, not this fill) */
+section.card-family-hero,
+section.card-family-experience,
+section.card-family-projects,
+section.card-family-leadership,
+section.card-family-ai,
+section.card-family-contact {
+  background-color: var(--card-wash);
+}
+
+/* Footer — lighter cousin of the header surface; warm, calm, professional */
+footer.card-family-contact {
+  background-color: color-mix(in srgb, var(--header-surface-tint) 36%, var(--color-neutral-0) 64%);
+}
+
+.dark footer.card-family-contact {
+  background-color: color-mix(in srgb, var(--header-surface-tint) 40%, var(--color-neutral-50) 60%);
+}
+
+/* ---- Buttons (premium fills; used by Button.tsx) ---- */
+.btn-primary {
+  color: #ffffff;
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-accent-600) 86%, white) 0%,
+    var(--color-accent-600) 100%
+  );
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+.btn-primary:hover {
+  background-image: linear-gradient(
+    180deg,
+    var(--color-accent-600) 0%,
+    var(--color-accent-700) 100%
+  );
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.dark .btn-primary {
+  color: #0d1117;
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-accent-600) 90%, white) 0%,
+    var(--color-accent-600) 100%
+  );
+}
+.dark .btn-primary:hover {
+  background-image: linear-gradient(
+    180deg,
+    var(--color-accent-600) 0%,
+    var(--color-accent-700) 100%
+  );
+}
+
+.btn-secondary {
+  color: var(--color-neutral-800);
+  background-color: color-mix(in srgb, var(--color-card) 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-neutral-300) 90%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+.btn-secondary:hover {
+  background-color: var(--color-neutral-50);
+  border-color: var(--color-neutral-400);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---- Surface 2 / 3 — cards (inherits family tokens) ---- */
+.surface,
+.surface-sm {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--card-bg);
+  background-image:
+    linear-gradient(180deg, var(--card-highlight) 0%, transparent 52%),
+    linear-gradient(180deg, transparent 60%, color-mix(in srgb, var(--card-bg) 92%, black) 100%);
+  border: 1px solid var(--card-border);
+  overflow: clip;
+}
+
+.surface {
+  border-radius: var(--radius-lg);
+  /* Soft ambient + small directional lift */
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--card-border) 35%, transparent),
+    0 1px 2px rgba(var(--card-shadow-rgb), 0.05),
+    0 4px 10px rgba(var(--card-shadow-rgb), 0.06),
+    0 12px 28px rgba(var(--card-shadow-rgb), 0.07);
+}
+
+.surface-sm {
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--card-border) 28%, transparent),
+    0 1px 2px rgba(var(--card-shadow-rgb), 0.045),
+    0 3px 10px rgba(var(--card-shadow-rgb), 0.055);
+}
+
+/* Surface 3 — highlight / showcase cards */
+.surface-elevated {
+  background-color: var(--card-bg-elevated);
+  border-color: var(--card-border-hover);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--card-border-hover) 40%, transparent),
+    0 1px 2px rgba(var(--card-shadow-rgb), 0.06),
+    0 6px 16px rgba(var(--card-shadow-rgb), 0.08),
+    0 18px 36px rgba(var(--card-shadow-rgb), 0.09);
+}
+
+/* Subtle top ambient highlight */
+.surface::after,
+.surface-sm::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 45%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse 85% 75% at 50% -12%, var(--card-highlight), transparent 72%);
+  opacity: 0.7;
+}
+.surface > *,
+.surface-sm > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dark .surface,
+.dark .surface-sm {
+  background-image: linear-gradient(180deg, var(--card-highlight) 0%, transparent 48%);
+}
+
+.surface-interactive {
+  transition:
+    border-color var(--motion-standard) var(--ease-spring),
+    box-shadow var(--motion-standard) var(--ease-spring),
+    background-color var(--motion-standard) var(--ease-spring),
+    background-image var(--motion-standard) var(--ease-spring);
+}
+@media (hover: hover) and (pointer: fine) {
+  .surface-interactive:hover {
+    background-color: var(--card-bg-hover);
+    border-color: var(--card-border-hover);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--card-border-hover) 45%, transparent),
+      0 2px 4px rgba(var(--card-shadow-rgb), 0.06),
+      0 8px 18px rgba(var(--card-shadow-rgb), 0.09),
+      0 20px 40px rgba(var(--card-shadow-rgb), 0.1);
+  }
+  .surface-elevated.surface-interactive:hover {
+    background-color: color-mix(in srgb, var(--card-bg-elevated) 92%, black);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--card-border-hover) 55%, transparent),
+      0 2px 6px rgba(var(--card-shadow-rgb), 0.07),
+      0 10px 22px rgba(var(--card-shadow-rgb), 0.1),
+      0 24px 48px rgba(var(--card-shadow-rgb), 0.12);
+  }
+}
+
+.card-accent-edge {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  opacity: 0.75;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-accent-600) 45%, transparent) 50%,
+    transparent 100%
+  );
+}
+
+/* Premium sticky header — warm/charcoal glass; height via --header-height */
+.site-header {
+  border-bottom: 1px solid var(--header-border);
+  background: color-mix(in srgb, var(--header-surface-tint) 88%, transparent);
+  box-shadow: var(--header-shadow);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  transition:
+    background-color var(--motion-standard) var(--ease-entrance),
+    border-color var(--motion-standard) var(--ease-entrance),
+    box-shadow var(--motion-standard) var(--ease-entrance);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header {
+    background: var(--header-surface-tint);
+  }
+}
+
+.hero-ambient {
+  position: relative;
+  isolation: isolate;
+}
+.hero-ambient::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8% auto -8%;
+  height: min(78vh, 40rem);
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 72% 62% at 16% 18%, rgba(46, 58, 140, 0.09), transparent 62%),
+    radial-gradient(ellipse 52% 48% at 82% 8%, rgba(29, 78, 216, 0.055), transparent 58%),
+    radial-gradient(ellipse 40% 30% at 48% 60%, rgba(255, 255, 255, 0.35), transparent 70%);
+}
+.dark .hero-ambient::before {
+  background:
+    radial-gradient(ellipse 72% 62% at 16% 14%, rgba(123, 140, 255, 0.16), transparent 62%),
+    radial-gradient(ellipse 52% 48% at 84% 4%, rgba(91, 141, 239, 0.1), transparent 58%),
+    radial-gradient(ellipse 40% 30% at 50% 55%, rgba(255, 255, 255, 0.02), transparent 70%);
+}
+
+/* Timeline rail — calm connector + milestone marker */
+.timeline-rail {
+  position: relative;
+  border-left: 1px solid var(--color-neutral-200);
+  padding-left: 1.5rem;
+}
+.timeline-rail::before {
+  content: "";
+  position: absolute;
+  left: -4.5px;
+  top: 0.4rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-accent-600);
+  box-shadow: 0 0 0 4px var(--color-neutral-0);
+}
+.section-tone-muted .timeline-rail::before,
+.section-tone-elevated .timeline-rail::before {
+  box-shadow: 0 0 0 4px var(--color-section-muted);
+}
+.dark .timeline-rail::before {
+  box-shadow: 0 0 0 4px var(--color-neutral-0);
+}
+.dark .section-tone-muted .timeline-rail::before {
+  box-shadow: 0 0 0 4px var(--color-section-muted);
+}
+
+.container-prose {
+  max-width: var(--container-prose);
+}
+.container-content {
+  max-width: var(--container-content);
+}
+.container-wide {
+  max-width: var(--container-wide);
+}
+.container-full {
+  max-width: var(--container-full);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-anchor {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-royal);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-focus);
+}
+
+::selection {
+  background: var(--color-accent-50);
+  color: var(--color-accent-700);
+}
+.dark ::selection {
+  background: color-mix(in srgb, var(--color-accent-600) 45%, transparent);
+  color: var(--color-neutral-950);
+}
+
+* {
+  scrollbar-color: var(--color-neutral-300) transparent;
+  scrollbar-width: thin;
+}
+.dark * {
+  scrollbar-color: var(--color-neutral-300) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-neutral-300);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: var(--z-index-toast);
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--color-neutral-0);
+  color: var(--color-neutral-800);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: reveal-up var(--motion-entrance) var(--ease-entrance) both;
+}
+
+@keyframes fade-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.tooltip-content,
+.popover-content,
+.select-content {
+  animation: fade-scale-in var(--motion-micro) var(--ease-entrance) both;
+}
+
+@keyframes drawer-slide-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes drawer-slide-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes drawer-slide-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.drawer-right {
+  animation: drawer-slide-right var(--motion-standard) var(--ease-entrance) both;
+}
+.drawer-left {
+  animation: drawer-slide-left var(--motion-standard) var(--ease-entrance) both;
+}
+.drawer-bottom {
+  animation: drawer-slide-bottom var(--motion-standard) var(--ease-entrance) both;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+.accordion-content[data-state="open"] {
+  animation: accordion-down var(--motion-standard) ease-out;
+}
+.accordion-content[data-state="closed"] {
+  animation: accordion-up var(--motion-standard) ease-out;
+}
+
+/* Thin route-loading indicator (`src/app/loading.tsx`) — avoids a full
+   viewport spinner flash during brief RSC waits. */
+@keyframes nav-loading-bar {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+.nav-loading-bar {
+  animation: nav-loading-bar 1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+  .tooltip-content,
+  .popover-content,
+  .select-content {
+    animation: none;
+  }
+  .drawer-right,
+  .drawer-left,
+  .drawer-bottom {
+    animation: none;
+  }
+  .accordion-content[data-state="open"],
+  .accordion-content[data-state="closed"] {
+    animation: none;
+  }
+  .nav-loading-bar {
+    animation: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+  body::after {
+    display: none;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .print-hidden {
+    display: none !important;
+  }
+  body::before,
+  body::after,
+  .hero-ambient::before {
+    display: none !important;
+  }
+  .container-prose,
+  .container-content,
+  .container-wide,
+  .container-full {
+    max-width: none;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

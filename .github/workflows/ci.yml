@@ -1,0 +1,48 @@
+name: CI
+
+# Phase 18 quality gate — runs on every PR and push to main.
+# (docs/phase-18-continuous-improvement/04-automation-strategy.md)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Format
+        run: npm run format:check
+
+      - name: Content integrity
+        run: npm run validate:content
+
+      - name: Internal links
+        run: npm run validate:links
+
+      - name: Production build
+        run: npm run build
