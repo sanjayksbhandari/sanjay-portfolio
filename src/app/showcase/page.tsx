@@ -79,7 +79,7 @@ export default function EngineeringShowcasePage() {
           <TableOfContents items={pageSections} />
         </div>
 
-        <section id="filters" className="scroll-anchor mt-14">
+        <section id="filters" className="scroll-anchor mt-8 mb-8">
           <h2 className="sr-only">Filter and search the showcase</h2>
           <ShowcaseFilterBar
             technologies={technologies}

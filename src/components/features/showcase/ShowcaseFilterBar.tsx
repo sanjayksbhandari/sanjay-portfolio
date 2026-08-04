@@ -15,6 +15,11 @@ export interface ShowcaseFilterableStory {
   searchText: string;
 }
 
+const fieldLabelClass = "type-label-muted block";
+
+const controlClass =
+  "focus-visible:ring-accent-600 mt-1.5 flex h-11 w-full items-center rounded-md border border-neutral-300 bg-[var(--color-neutral-0)] px-3 text-sm leading-none text-neutral-800 outline-none focus-visible:ring-2";
+
 /**
  * Engineering Showcase — Filter Bar
  * (docs/phase-11-engineering-showcase/01-architecture.md, "Filtering &
@@ -70,10 +75,10 @@ export function ShowcaseFilterBar({
   const hasActiveFilter = Boolean(query || technology || industry);
 
   return (
-    <div className="surface p-6">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div>
-          <label htmlFor="showcase-search" className="text-xs text-neutral-600">
+    <div className="surface p-5 sm:p-6">
+      <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)] md:gap-5">
+        <div className="min-w-0">
+          <label htmlFor="showcase-search" className={fieldLabelClass}>
             Search
           </label>
           <input
@@ -82,19 +87,19 @@ export function ShowcaseFilterBar({
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Project, technology, industry…"
-            className="focus-visible:ring-accent-600 mt-1.5 block w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-800 outline-none focus-visible:ring-2"
+            className={controlClass}
           />
         </div>
 
-        <div>
-          <label htmlFor="showcase-technology" className="text-xs text-neutral-600">
+        <div className="min-w-0">
+          <label htmlFor="showcase-technology" className={fieldLabelClass}>
             Technology
           </label>
           <select
             id="showcase-technology"
             value={technology}
             onChange={(event) => setTechnology(event.target.value)}
-            className="focus-visible:ring-accent-600 mt-1.5 block w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-800 outline-none focus-visible:ring-2"
+            className={`${controlClass} appearance-auto pr-8`}
           >
             <option value="">All technologies</option>
             {technologies.map((tech) => (
@@ -105,15 +110,15 @@ export function ShowcaseFilterBar({
           </select>
         </div>
 
-        <div>
-          <label htmlFor="showcase-industry" className="text-xs text-neutral-600">
+        <div className="min-w-0">
+          <label htmlFor="showcase-industry" className={fieldLabelClass}>
             Industry
           </label>
           <select
             id="showcase-industry"
             value={industry}
             onChange={(event) => setIndustry(event.target.value)}
-            className="focus-visible:ring-accent-600 mt-1.5 block w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-800 outline-none focus-visible:ring-2"
+            className={`${controlClass} appearance-auto pr-8`}
           >
             <option value="">All industries</option>
             {industries.map((ind) => (
@@ -125,7 +130,7 @@ export function ShowcaseFilterBar({
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-4">
+      <div className="mt-5 flex items-center justify-between gap-4 border-t border-neutral-200/80 pt-4">
         <p aria-live="polite" className="text-sm text-neutral-600">
           Showing {visibleSlugs.size} of {stories.length} engineering{" "}
           {stories.length === 1 ? "story" : "stories"}
@@ -138,7 +143,7 @@ export function ShowcaseFilterBar({
               setTechnology("");
               setIndustry("");
             }}
-            className="hover:text-accent-600 text-sm font-medium text-neutral-600"
+            className="hover:text-accent-600 shrink-0 text-sm font-medium text-neutral-600"
           >
             Clear filters
           </button>
