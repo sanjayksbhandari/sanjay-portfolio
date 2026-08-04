@@ -30,7 +30,7 @@ export function HeroIntro() {
 
         {/* Supporting statement — SEO h1, supporting visual weight. */}
         <Display as="h1" className="mt-8">
-          Enterprise Java systems, architected and led end-to-end.
+          Enterprise Java platforms — from architecture to production.
         </Display>
 
         <Text variant="lead" className="mt-8">
