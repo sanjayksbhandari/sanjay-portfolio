@@ -31,7 +31,7 @@ import { buildBreadcrumbTrail } from "@/lib/seo/breadcrumbs";
 
 export const metadata: Metadata = buildMetadata({
   title: "Professional Hub",
-  description: "Resume, contact options, and recruiter shortcuts for Sanjay Singh Bhandari.",
+  description: "My resume, contact options, and recruiter shortcuts.",
   path: "/contact",
 });
 

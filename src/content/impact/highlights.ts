@@ -42,7 +42,7 @@ export const selectedHighlights: Highlight[] = [
     businessOutcome:
       "Faster recovery from production incidents in InterGlobe's finance-domain systems, reducing the business impact of each incident.",
     technicalOutcome:
-      "Took direct ownership of issue triage instead of routing every incident through a separate support layer, shortening the path from an incoming issue to a root-cause fix.",
+      "I took direct ownership of issue triage instead of routing every incident through a separate support layer, shortening the path from an incoming issue to a root-cause fix.",
     relatedCaseStudySlug: "financial-transaction-platform",
   },
   {
@@ -51,16 +51,16 @@ export const selectedHighlights: Highlight[] = [
     businessOutcome:
       "Opal's Artwork Management Platform has been in continuous production use across its private-brand retail client base for nine-plus years.",
     technicalOutcome:
-      "Architected and led the platform's evolution from a Spring MVC monolith toward Spring Boot and microservices, and its frontend from ExtJS to React, without a full-stop rewrite.",
+      "I architected and led the platform's evolution from a Spring MVC monolith toward Spring Boot and microservices, and its frontend from ExtJS to React, without a full-stop rewrite.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "team-growth",
     title: "Led Engineering as the Team Scaled",
     businessOutcome:
-      "Provided the technical leadership Opal BPM's engineering organization needed as it grew from a two-person start into a full team and product suite.",
+      "I provided the technical leadership Opal BPM's engineering organization needed as the team and product suite scaled — distinct from my full nearly 10-year tenure at the company.",
     technicalOutcome:
-      "Mentored a team of 5–7 developers directly and established the code-quality and system-design practices the team worked against.",
+      "During the last five years of my tenure, I mentored a team of 5–7 developers directly and established the code-quality and system-design practices the team worked against.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
 ];

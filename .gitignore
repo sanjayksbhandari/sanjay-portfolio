@@ -105,3 +105,4 @@ Desktop.ini
 *.temp
 .temp/
 .tmp/
+.tmp-cert-ocr/

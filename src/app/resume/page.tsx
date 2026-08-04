@@ -16,8 +16,7 @@ import { buildBreadcrumbTrail } from "@/lib/seo/breadcrumbs";
 
 export const metadata: Metadata = buildMetadata({
   title: "Resume",
-  description:
-    "Online and downloadable resume for Sanjay Singh Bhandari, Senior Java Engineering Leader.",
+  description: "My online and downloadable resume — Senior Java Engineering Leader.",
   path: "/resume",
 });
 

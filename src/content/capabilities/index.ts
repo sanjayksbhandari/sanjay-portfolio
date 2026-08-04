@@ -21,7 +21,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Designing and shipping production Java backends for multi-year enterprise platforms — Spring MVC through Spring Boot — across four verified employers.",
     evidence:
-      "Lead Java Developer at Opal BPM for nine-plus years (Spring MVC, Spring Boot, Microservices) and Senior Java Developer on InterGlobe's financial backend modules (Spring MVC, REST APIs).",
+      "Senior Java Developer → Lead Java Developer at Opal BPM for 9 years 7 months (Spring MVC, Spring Boot, Microservices), with technical leadership of 5–7 developers in the last five years; and Senior Java Developer on InterGlobe's financial backend modules (Spring MVC, REST APIs).",
     businessValue:
       "Sustained ownership of the systems private-brand retailers and finance-domain teams actually ran on — not short consulting engagements.",
     relatedCaseStudySlugs: [
@@ -36,7 +36,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Architecting production platforms from the ground up and evolving them as the client base and feature surface grew.",
     evidence:
-      "Architected the 16-microservice Enterprise Exchange Platform and led the Artwork Management Platform's evolution from a Spring MVC monolith toward Spring Boot and microservices.",
+      "I architected the 16-microservice Enterprise Exchange Platform and led the Artwork Management Platform's evolution from a Spring MVC monolith toward Spring Boot and microservices.",
     businessValue:
       "A multi-tenant trading platform in production at 99.9% uptime, and an artwork platform in continuous production use across Opal's private-brand retail client base for nine-plus years.",
     relatedCaseStudySlugs: [
@@ -67,7 +67,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Standardizing how identity and access are established across independently-run client deployments.",
     evidence:
-      "Led the design and rollout of an OAuth2-based authentication and authorization system, enforced with Spring Security and JWT, across multiple independent client deployments of Opal's platform.",
+      "I led the design and rollout of an OAuth2-based authentication and authorization system, enforced with Spring Security and JWT, across multiple independent client deployments of Opal's platform.",
     businessValue:
       "Replaced a fragmented, per-client approach to authentication with one standard — cutting the security-review burden for every new and existing client deployment.",
     relatedCaseStudySlugs: ["oauth2-authentication-platform"],
@@ -87,7 +87,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     todos: [
       {
         label:
-          "The specific performance-tuning methodology used (profiling, load testing, caching strategy), in your own words",
+          "The specific performance-tuning methodology used (profiling, load testing, caching strategy), in my own words",
       },
     ],
   },
@@ -97,7 +97,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Owning production incident triage on systems already in use — shortening the path from an incoming issue to a root-cause fix.",
     evidence:
-      "Took direct ownership of production issue triage for InterGlobe's financial systems, reducing mean time to resolution by 30%.",
+      "I took direct ownership of production issue triage for InterGlobe's financial systems, reducing mean time to resolution by 30%.",
     businessValue:
       "Faster recovery from production incidents in finance-domain systems, reducing the business impact of each incident.",
     relatedCaseStudySlugs: ["financial-transaction-platform"],
@@ -109,7 +109,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Decomposing a platform along domain seams so each service can scale and change independently.",
     evidence:
-      "Decomposed the Enterprise Exchange Platform into 16 focused microservices (order intake, matching, settlement, notification) with distinct scaling and change profiles per tenant and waste category.",
+      "I decomposed the Enterprise Exchange Platform into 16 focused microservices (order intake, matching, settlement, notification) with distinct scaling and change profiles per tenant and waste category.",
     businessValue:
       "A multi-tenant trading platform letting buyer/seller organizations transact across 5 waste categories on shared infrastructure — each domain seam able to evolve without a single monolithic release train.",
     relatedCaseStudySlugs: ["enterprise-exchange-platform"],
@@ -129,7 +129,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     todos: [
       {
         label:
-          "Specific database-engineering practices (schema design, indexing, migration strategy) used on these platforms, in your own words",
+          "Specific database-engineering practices (schema design, indexing, migration strategy) used on these platforms, in my own words",
       },
     ],
   },
@@ -139,7 +139,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Owning how critical services reach UAT and production — including rollback and monitoring strategy — on cloud infrastructure.",
     evidence:
-      "Owned deployment of critical services to UAT/production at Opal BPM, including rollback and monitoring strategy, and implemented cloud-native deployments on AWS EC2 with Docker.",
+      "I owned deployment of critical services to UAT/production at Opal BPM, including rollback and monitoring strategy, and implemented cloud-native deployments on AWS EC2 with Docker.",
     businessValue:
       "Repeatable path from merged change to running service, with an explicit rollback plan, rather than ad hoc production pushes.",
     relatedCaseStudySlugs: ["enterprise-artwork-management-platform"],
@@ -151,7 +151,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Defining the delivery pipeline itself — not only consuming one that already existed.",
     evidence:
-      "Defined CI/CD strategy using Jenkins and Docker for Opal BPM's platform deployments.",
+      "I defined CI/CD strategy using Jenkins and Docker for Opal BPM's platform deployments.",
     businessValue:
       "A named, owned pipeline strategy behind nine-plus years of incremental delivery, rather than one-off release scripts.",
     relatedCaseStudySlugs: ["enterprise-artwork-management-platform"],
@@ -163,9 +163,9 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Growing into technical leadership of a product engineering team and owning the standards it worked against.",
     evidence:
-      "Grew from Opal BPM's second engineering hire into Lead Java Developer over nine-plus years, providing technical leadership to a team of 5–7 developers.",
+      "I joined Opal BPM as a Senior Java Developer and progressed into Lead Java Developer; during the last five years of my tenure I provided technical leadership to a team of 5–7 developers.",
     businessValue:
-      "The technical leadership Opal's engineering organization needed as it scaled from a two-person start into a full team and product suite.",
+      "The technical leadership Opal's engineering organization needed as the team and product suite scaled — separate from my full nearly 10-year tenure at the company.",
     relatedCaseStudySlugs: ["enterprise-artwork-management-platform"],
     relatedTechnologies: [],
   },
@@ -174,15 +174,14 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     title: "Code Quality",
     overview: "Setting code-quality standards for a team rather than relying on ad hoc review.",
     evidence:
-      "Established code-quality and system-design practices for a 5–7 developer team at Opal BPM as part of the Lead Java Developer role.",
+      "I established code-quality and system-design practices for a 5–7 developer team during the last five years of my Opal BPM tenure as Lead Java Developer.",
     businessValue:
       "A shared review bar the team worked against as headcount grew — not a different standard per reviewer.",
     relatedCaseStudySlugs: ["enterprise-artwork-management-platform"],
     relatedTechnologies: [],
     todos: [
       {
-        label:
-          "What you specifically look for first in a code review, and how you deliver feedback",
+        label: "What I specifically look for first in a code review, and how I deliver feedback",
       },
     ],
   },
@@ -192,15 +191,14 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Mentoring developers through the same code-quality and system-design practices the team was held to.",
     evidence:
-      "Provided technical leadership and mentoring to a team of 5–7 developers at Opal BPM, establishing the practices the team worked against.",
+      "During the last five years at Opal BPM, I provided technical leadership and mentoring to a team of 5–7 developers, establishing the practices the team worked against.",
     businessValue:
       "A team that could absorb new hires against a documented standard rather than tribal knowledge alone.",
     relatedCaseStudySlugs: ["enterprise-artwork-management-platform"],
     relatedTechnologies: [],
     todos: [
       {
-        label:
-          "Your actual mentoring approach — how you onboard/coach a developer, in your own words",
+        label: "My actual mentoring approach — how I onboard/coach a developer, in my own words",
       },
     ],
   },
@@ -210,7 +208,7 @@ export const engineeringCapabilities: EngineeringCapability[] = [
     overview:
       "Translating business requirements into architecture and aligning delivery across organizational boundaries.",
     evidence:
-      "Collaborated with cross-functional teams and stakeholders to translate business requirements into technical architecture at Opal BPM, and aligned onshore/offshore delivery with finance-domain needs at InterGlobe.",
+      "I collaborated with cross-functional teams and stakeholders to translate business requirements into technical architecture at Opal BPM, and aligned onshore/offshore delivery with finance-domain needs at InterGlobe.",
     businessValue:
       "Architecture and delivery that stayed coupled to the business problem — not a hand-off that lost context at the org chart boundary.",
     relatedCaseStudySlugs: ["financial-transaction-platform"],
@@ -240,28 +238,28 @@ export const engineeringResponsibilities: EngineeringResponsibility[] = [
     id: "architecture",
     category: "Architecture",
     evidence:
-      "Owned the architectural decisions behind the Enterprise Exchange Platform's 16-service decomposition and the Artwork Management Platform's Spring MVC → Spring Boot/microservices evolution.",
+      "I owned the architectural decisions behind the Enterprise Exchange Platform's 16-service decomposition and the Artwork Management Platform's Spring MVC → Spring Boot/microservices evolution.",
     relatedCaseStudySlug: "enterprise-exchange-platform",
   },
   {
     id: "design",
     category: "Design",
     evidence:
-      "Designed the OAuth2 authorization model rolled out across multiple client deployments, and the Beckn adapter's explicit verification-lifecycle state machine.",
+      "I designed the OAuth2 authorization model rolled out across multiple client deployments, and the Beckn adapter's explicit verification-lifecycle state machine.",
     relatedCaseStudySlug: "oauth2-authentication-platform",
   },
   {
     id: "implementation",
     category: "Implementation",
     evidence:
-      'Led full-stack development of Opal\'s enterprise applications and built the Beckn Protocol Verification Adapter ("WRI Connector") end-to-end.',
+      'I led full-stack development of Opal\'s enterprise applications and built the Beckn Protocol Verification Adapter ("WRI Connector") end-to-end.',
     relatedCaseStudySlug: "beckn-protocol-verification-adapter",
   },
   {
     id: "debugging",
     category: "Debugging",
     evidence:
-      "Took direct ownership of production issue triage on InterGlobe's financial backend modules — the same ownership that produced the verified 30% MTTR reduction.",
+      "I took direct ownership of production issue triage on InterGlobe's financial backend modules — the same ownership that produced the verified 30% MTTR reduction.",
     relatedCaseStudySlug: "financial-transaction-platform",
   },
   {
@@ -270,48 +268,48 @@ export const engineeringResponsibilities: EngineeringResponsibility[] = [
     evidence:
       "Verified production outcomes include sub-100ms notification delivery and sub-50ms P95 API latency — the specific optimization methodology behind those numbers is not yet documented.",
     relatedCaseStudySlug: "enterprise-exchange-platform",
-    todo: "Specific optimization practices used to reach those latency targets, in your own words",
+    todo: "Specific optimization practices used to reach those latency targets, in my own words",
   },
   {
     id: "leadership",
     category: "Leadership",
     evidence:
-      "Provided technical leadership to a team of 5–7 developers at Opal BPM after growing into that role from the company's second engineering hire.",
+      "During the last five years of my Opal BPM tenure, I provided technical leadership to a team of 5–7 developers after progressing from Senior Java Developer into Lead Java Developer.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "mentoring",
     category: "Mentoring",
     evidence:
-      "Mentored the same 5–7 developer team and established the code-quality and system-design practices it worked against.",
+      "During those same last five years, I mentored the 5–7 developer team and established the code-quality and system-design practices it worked against.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "delivery",
     category: "Delivery",
     evidence:
-      "Delivered incrementally across nine-plus years at Opal BPM; defined CI/CD strategy with Jenkins and Docker; owned UAT/production deployment including rollback.",
+      "I delivered incrementally across nine-plus years at Opal BPM; defined CI/CD strategy with Jenkins and Docker; owned UAT/production deployment including rollback.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "stakeholder-collaboration",
     category: "Stakeholder Collaboration",
     evidence:
-      "Translated business requirements into technical architecture with cross-functional stakeholders at Opal BPM, and aligned onshore/offshore delivery with finance-domain needs at InterGlobe.",
+      "I translated business requirements into technical architecture with cross-functional stakeholders at Opal BPM, and aligned onshore/offshore delivery with finance-domain needs at InterGlobe.",
     relatedCaseStudySlug: "financial-transaction-platform",
   },
   {
     id: "quality",
     category: "Quality",
     evidence:
-      "Set code-quality standards for the Opal BPM engineering team as part of the Lead Java Developer role.",
+      "I set code-quality standards for the Opal BPM engineering team during the last five years of my tenure as Lead Java Developer.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "production-support",
     category: "Production Support",
     evidence:
-      "Owned production issue triage directly rather than routing all incidents through a separate support layer — verified 30% MTTR reduction at InterGlobe.",
+      "I owned production issue triage directly rather than routing all incidents through a separate support layer — verified 30% MTTR reduction at InterGlobe.",
     relatedCaseStudySlug: "financial-transaction-platform",
   },
 ];

@@ -94,7 +94,7 @@ export default function Home() {
       <Section border containerWidth="wide" family="ai">
         <SectionHeading
           kicker="AI Engineering"
-          title="17 years of enterprise Java discipline, applied to AI-native product building."
+          title="I apply 17 years of enterprise Java discipline to AI-native product building."
         />
         <div className="mt-12 max-w-2xl">
           <CaseStudyCard caseStudy={featuredAIProject} />

@@ -43,7 +43,13 @@ export function LeadershipTimeline({ stages }: { stages: LeadershipTimelineStage
     id: entry.slug,
     title: entry.title,
     meta: entry.dateRange,
-    caption: entry.durationLabel,
+    // Employment duration ≠ leadership duration. Prefer the role's
+    // `leadershipDurationLabel` when present so the caption cannot be
+    // read as "led for the full tenure."
+    caption: leadershipScope
+      ? (entry.leadershipDurationLabel ??
+        `Technical leadership (tenure: ${entry.durationLabel ?? entry.dateRange})`)
+      : entry.durationLabel,
     description: entry.company,
     body: scopeBody(leadershipScope),
   }));

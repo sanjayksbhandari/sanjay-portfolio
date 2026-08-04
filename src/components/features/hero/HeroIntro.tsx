@@ -66,7 +66,7 @@ export function HeroIntro() {
             <Stat value="99.9%" label="Production uptime (Exchange Platform)" />
           </StaggerItem>
           <StaggerItem>
-            <Stat value="5–7" label="Developers mentored directly" />
+            <Stat value="5–7" label="Developers led (last ~5 years at Opal)" />
           </StaggerItem>
         </Stagger>
 

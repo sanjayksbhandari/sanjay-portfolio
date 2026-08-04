@@ -22,6 +22,7 @@ const staticPaths = [
   "/architecture",
   "/ai-engineering",
   "/achievements",
+  "/education",
   "/certifications",
   "/resume",
   "/contact",

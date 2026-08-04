@@ -186,6 +186,12 @@ export interface JourneyEntry {
    * field rather than asserting "none."
    */
   leadershipScope?: string[];
+  /**
+   * Duration of verified technical leadership within this role — distinct
+   * from `durationLabel` (full employment tenure). Use when leadership
+   * covered only part of the role (e.g. last ~5 years of a longer tenure).
+   */
+  leadershipDurationLabel?: string;
   relatedCaseStudySlugs?: string[];
 }
 
@@ -236,6 +242,40 @@ export interface Certification {
   issuer: string;
   date: string;
   group?: string;
+}
+
+/** Verified academic credential for the Education timeline. */
+export interface AcademicCredential {
+  id: string;
+  degree: string;
+  institute: string;
+  /** University or board name. */
+  authority: string;
+  authorityLabel: "University" | "Board";
+  location: string;
+  duration: string;
+  score: string;
+  kind: "masters" | "bachelors" | "secondary";
+}
+
+/**
+ * Continuous Learning category — groups verified certifications by theme.
+ * `certificationIds` must reference real entries in `@/content/certifications`.
+ */
+export interface LearningCategory {
+  id: string;
+  category: string;
+  summary: string;
+  certificationIds: string[];
+}
+
+/** A certificate file discovered under `public/certificates/`. */
+export interface CertificateAsset {
+  id: string;
+  filename: string;
+  title: string;
+  src: string;
+  kind: "image" | "pdf";
 }
 
 export interface ArchitectureTheme {

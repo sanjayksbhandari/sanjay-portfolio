@@ -7,7 +7,8 @@ import { Icon } from "@/components/primitives/Icon";
  * (docs/phase-9-engineering-journey/01-architecture.md). Renders exactly
  * the verified titles in `JourneyEntry.title` in chronological order —
  * today Software Programmer → Programmer → Senior Java Developer →
- * Lead Java Developer — and nothing else. The brief's own example
+ * Senior Java Developer → Lead Java Developer — and nothing else. The
+ * brief's own example
  * ladder ("Developer → Senior Developer → Lead Developer → Technical
  * Leader → Engineering Leader") is illustrative, not a target to fill
  * in: there is no verified "Technical Leader"/"Engineering Leader" title

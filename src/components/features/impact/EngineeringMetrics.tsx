@@ -15,7 +15,7 @@ const metrics = [
   { value: site.yearsExperience, label: "Years of experience" },
   { value: "16", label: "Microservices in one production platform" },
   { value: "99.9%", label: "Uptime, Enterprise Exchange Platform" },
-  { value: "5–7", label: "Developers mentored directly" },
+  { value: "5–7", label: "Developers led (last ~5 years at Opal)" },
   { value: "<50ms", label: "P95 latency, Beckn Protocol adapter" },
   { value: "30%", label: "MTTR reduction, InterGlobe production support" },
 ] as const;

@@ -33,7 +33,7 @@ export function MobileNavDrawer() {
         <button
           type="button"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-          className="flex h-11 w-11 items-center justify-center rounded-md text-neutral-700 md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-md text-neutral-700 xl:hidden"
         >
           {open ? (
             <X size={22} strokeWidth={1.75} aria-hidden />
@@ -60,7 +60,7 @@ export function MobileNavDrawer() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
                 transition={{ duration: reduceMotion ? 0.01 : 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="z-overlay bg-neutral-0 safe-bottom fixed inset-0 top-[var(--header-height)] flex flex-col overflow-y-auto px-6 py-8 md:hidden"
+                className="z-overlay bg-neutral-0 safe-bottom fixed inset-0 top-[var(--header-height)] flex flex-col overflow-y-auto px-6 py-8 xl:hidden"
               >
                 <VisuallyHidden.Root asChild>
                   <Dialog.Title>Mobile navigation</Dialog.Title>

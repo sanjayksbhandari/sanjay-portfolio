@@ -14,42 +14,42 @@ export const careerPrinciples: CareerPrinciple[] = [
     id: "maintainability",
     title: "Maintainability",
     evidence:
-      "Evolved Opal's platform from a Spring MVC monolith toward Spring Boot and microservices, and its frontend from ExtJS to React, without a full-stop rewrite.",
+      "I evolved Opal's platform from a Spring MVC monolith toward Spring Boot and microservices, and its frontend from ExtJS to React, without a full-stop rewrite.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "scalability",
     title: "Scalability",
     evidence:
-      "Decomposed the Enterprise Exchange Platform into 16 focused microservices so order intake, trade matching, settlement, and notification could each scale and deploy independently.",
+      "I decomposed the Enterprise Exchange Platform into 16 focused microservices so order intake, trade matching, settlement, and notification could each scale and deploy independently.",
     relatedCaseStudySlug: "enterprise-exchange-platform",
   },
   {
     id: "code-quality",
     title: "Code Quality",
     evidence:
-      "Set code-quality and system-design standards for a 5–7 developer team as part of the technical leadership role at Opal BPM, rather than relying on ad hoc review.",
+      "I set code-quality and system-design standards for a 5–7 developer team during the last five years of my Opal BPM tenure, rather than relying on ad hoc review.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "architecture",
     title: "Architecture",
     evidence:
-      "Owned the architectural decisions behind the Enterprise Exchange Platform's 16-service decomposition and the Beckn Protocol Verification Adapter's state-machine design — decisions made and defended, not implemented from a pre-defined spec.",
+      "I owned the architectural decisions behind the Enterprise Exchange Platform's 16-service decomposition and the Beckn Protocol Verification Adapter's state-machine design — decisions made and defended, not implemented from a pre-defined spec.",
     relatedCaseStudySlug: "enterprise-exchange-platform",
   },
   {
     id: "mentoring",
     title: "Mentoring",
     evidence:
-      "Provided technical leadership and mentoring to a team of 5–7 developers at Opal BPM, having grown into that role from being the company's second engineering hire.",
+      "During the last five years at Opal BPM, I provided technical leadership and mentoring to a team of 5–7 developers after progressing from Senior Java Developer into Lead Java Developer.",
     relatedCaseStudySlug: "enterprise-artwork-management-platform",
   },
   {
     id: "reliability",
     title: "Reliability",
     evidence:
-      "Architected and operates the Enterprise Exchange Platform in production at 99.9% uptime, with notification delivery under 100ms.",
+      "I architected and operated the Enterprise Exchange Platform in production at 99.9% uptime, with notification delivery under 100ms.",
     relatedCaseStudySlug: "enterprise-exchange-platform",
   },
 ];

@@ -11,7 +11,7 @@ export const enterpriseArtworkManagementPlatform: CaseStudy = {
   businessProblem:
     "Opal BPM builds an enterprise platform that lets private-brand retailers manage product specifications, supplier collaboration, packaging artwork workflows and approvals, and regulatory/compliance data (including packaging composition needed for extended producer responsibility reporting) in one system. This is Opal's core commercial product.",
   myRole:
-    "I joined Opal BPM as its second employee in September 2015 and, over nine and a half years, architected and led full-stack development of its enterprise applications — spanning Spring MVC, Spring Security, Spring Boot, Microservices, ExtJS, and React on the frontend side — while the product and engineering team scaled around that architecture.",
+    "I joined Opal BPM as a Senior Java Developer (second engineering hire) in September 2015 and, over a 9-year, 7-month tenure progressing into Lead Java Developer, architected and led full-stack development of its enterprise applications — spanning Spring MVC, Spring Security, Spring Boot, Microservices, ExtJS, and React on the frontend side — while the product and engineering team scaled around that architecture. Technical leadership of a 5–7 developer team was concentrated in the last five years of that tenure.",
   teamComposition: null,
   architectureSummary:
     "A distributed, service-oriented enterprise application built on the Spring stack (Spring MVC → Spring Boot as the platform matured), with ExtJS and later React on the client side, deployed via AWS EC2 and Docker with Jenkins-driven CI/CD.",

@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Achievements",
   description:
-    "Factual, attributed achievements from nine-plus years at Opal BPM and InterGlobe Air Transport.",
+    "Factual, attributed achievements from my nine-plus years at Opal BPM and InterGlobe Air Transport.",
   path: "/achievements",
 });
 

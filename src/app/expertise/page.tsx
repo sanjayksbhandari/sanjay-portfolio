@@ -32,7 +32,7 @@ import { buildBreadcrumbTrail } from "@/lib/seo/breadcrumbs";
 export const metadata: Metadata = buildMetadata({
   title: "Engineering Capability Matrix",
   description:
-    "What kinds of engineering problems Sanjay can solve — capability domains backed by verified evidence and business value, not a technology badge page or skill-meter list.",
+    "What kinds of engineering problems I can solve — capability domains backed by verified evidence and business value, not a technology badge page or skill-meter list.",
   path: "/expertise",
 });
 
@@ -91,8 +91,8 @@ export default function ExpertisePage() {
         <PageHero
           breadcrumbItems={visualItems}
           kicker="Engineering Capability Matrix"
-          title="What kinds of engineering problems this record shows he can solve."
-          intro="An executive summary of verified capability domains — each tied to evidence and business value from case studies, achievements, and journey entries on this site."
+          title="What kinds of engineering problems I can solve."
+          intro="An executive summary of my verified capability domains — each tied to evidence and business value from case studies, achievements, and journey entries on this site."
           meta={[
             `${capabilities.length} capability domains`,
             "No skill meters, stars, or percentages",
@@ -112,9 +112,9 @@ export default function ExpertisePage() {
         <section id="capability-domains" className="scroll-anchor mt-16">
           <SectionHeader sectionId="capability-domains" title="Capability Domains" />
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600">
-            Fifteen problem classes with verified evidence on record. Expand a card for the evidence
-            → projects → technologies → business value chain; filter when you already know which
-            technology or domain matters to the role.
+            Fifteen problem classes with verified evidence from my work. Expand a card for the
+            evidence → projects → technologies → business value chain; filter when you already know
+            which technology or domain matters to the role.
           </p>
 
           <div className="mt-8">
@@ -132,9 +132,9 @@ export default function ExpertisePage() {
         <section id="responsibilities" className="scroll-anchor mt-16">
           <SectionHeader sectionId="responsibilities" title="Engineering Responsibilities Matrix" />
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600">
-            The same verified record, sliced by responsibility category rather than by problem class
-            — what he has actually owned across architecture, delivery, leadership, and production
-            support.
+            The same verified capabilities, sliced by responsibility category rather than by problem
+            class — what I have actually owned across architecture, delivery, leadership, and
+            production support.
           </p>
           <div className="mt-8">
             <ResponsibilitiesMatrix responsibilities={responsibilities} />

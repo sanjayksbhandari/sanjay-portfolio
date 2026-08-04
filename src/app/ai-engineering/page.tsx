@@ -30,7 +30,7 @@ import { site } from "@/config/site";
 export const metadata: Metadata = buildMetadata({
   title: "AI Engineering & Innovation Lab",
   description:
-    "17+ years of enterprise Java discipline extended into prompt engineering, retrieval-augmented generation, and LangChain — seven personal, solo-built resume/hiring projects, with what's still just curiosity marked as clearly as what's actually shipped.",
+    "I extend 17+ years of enterprise Java discipline into prompt engineering, retrieval-augmented generation, and LangChain — seven personal, solo-built resume/hiring projects, with what's still just curiosity marked as clearly as what's actually shipped.",
   path: "/ai-engineering",
 });
 

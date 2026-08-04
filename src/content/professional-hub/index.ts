@@ -17,8 +17,8 @@ import { site } from "@/config/site";
 
 export const professionalSummary = {
   focus:
-    "17+ years of enterprise Java platform work — authentication, microservices, trading and financial systems — applied to Engineering Lead / Architect-scope roles, with ongoing AI product work (LangChain, RAG, Python).",
-  experienceLevel: `${site.yearsExperience} years of engineering experience. Most recent verified role: Lead Java Developer at Opal BPM (Sep 2015 – Apr 2025), mentoring a team of 5–7 developers.`,
+    "I bring 17+ years of enterprise Java platform work — authentication, microservices, trading and financial systems — to Engineering Lead / Architect-scope roles, with ongoing AI product work (LangChain, RAG, Python).",
+  experienceLevel: `I have ${site.yearsExperience} years of engineering experience. My most recent verified role: Senior Java Developer → Lead Java Developer at Opal BPM (Sep 2015 – Apr 2025); during the last five years I led a team of 5–7 developers.`,
   preferredOpportunities: null as string | null,
   preferredOpportunitiesTodo: undefined as string | undefined,
 };
@@ -48,7 +48,7 @@ export const contactMethods: ContactMethod[] = [
     kind: "portfolio",
     href: site.url,
     primary: false,
-    description: "This site — the verified engineering record.",
+    description: "This site — my verified engineering portfolio.",
   },
   ...(site.email
     ? [
@@ -138,9 +138,9 @@ export const hubFaqItems: HubFAQItem[] = [
   },
   {
     id: "leadership-experience",
-    question: "What leadership experience is on record?",
+    question: "What leadership experience do I have?",
     answer:
-      "Lead Java Developer at Opal BPM (Sep 2015 – Apr 2025), mentoring a team of 5–7 developers and setting code-quality and system-design practices after joining as the company's second engineering hire.",
+      "I spent nearly 10 years at Opal BPM (Sep 2015 – Apr 2025), joining as a Senior Java Developer and progressing into Lead Java Developer. During the last five years of that tenure, I led a team of 5–7 developers and set code-quality and system-design practices.",
   },
   {
     id: "industries",

@@ -36,8 +36,9 @@ export interface LeadershipTimelineStage {
  * Chronological (oldest role first, matching `/journey`'s own Career
  * Timeline ordering) view of exactly `getExperienceChronological()` —
  * every verified `JourneyEntry`, with leadership scope called out only
- * where `leadershipScope` is on record (today: Lead Java Developer at
- * Opal BPM). This is a second, leadership-scoped *lens* over the same
+ * where `leadershipScope` is on record (today: Opal BPM — technical
+ * leadership of 5–7 developers in the last ~5 years of a Senior → Lead
+ * progression). This is a second, leadership-scoped *lens* over the same
  * records `/journey`'s Career Timeline renders in full — not a second,
  * separately-authored timeline.
  */

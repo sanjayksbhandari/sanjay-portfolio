@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/architecture",
     "/ai-engineering",
     "/achievements",
+    "/education",
     "/certifications",
     "/resume",
     "/contact",
@@ -20,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : path === "/showcase" ? 0.9 : 0.7,
+    priority: path === "" ? 1 : path === "/showcase" ? 0.9 : path === "/certifications" ? 0.4 : 0.7,
   }));
 
   const caseStudyRoutes = getAllCaseStudies().map((cs) => ({

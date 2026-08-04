@@ -100,6 +100,10 @@ export interface Education extends BaseEntity {
   institution: string;
   credential: string;
   dateRange?: string;
+  /** University or examining board, when applicable. */
+  authority?: string;
+  location?: string;
+  score?: string;
 }
 
 export interface LanguageSkill {

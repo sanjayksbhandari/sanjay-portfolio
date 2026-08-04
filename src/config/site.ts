@@ -20,7 +20,7 @@ export const site = {
   // TODO: confirm final production domain before launch (docs/12 SEO strategy).
   url: "https://sanjaysinghbhandari.com",
   description:
-    "Senior Java engineering leader with 17+ years building enterprise platforms — authentication systems, microservices, and financial systems — now extending that discipline into AI engineering with LangChain, RAG, and Python.",
+    "I'm a senior Java engineering leader with 17+ years building enterprise platforms — authentication systems, microservices, and financial systems — now extending that discipline into AI engineering with LangChain, RAG, and Python.",
   location: "New Delhi, India",
   // TODO: add preferred public contact email — not fabricated, must be supplied.
   email: "sanjaybhandari2025@gmail.com",
@@ -37,11 +37,12 @@ export const site = {
 
 export const primaryNav = [
   { label: "Showcase", href: "/showcase" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Journey", href: "/journey" },
   { label: "Expertise", href: "/expertise" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "Leadership", href: "/leadership" },
   { label: "AI Engineering", href: "/ai-engineering" },
+  { label: "Education", href: "/education" },
 ] as const;
 
 export const ctaNav = [
@@ -52,16 +53,16 @@ export const ctaNav = [
 export const footerNav = {
   explore: [
     { label: "Engineering Showcase", href: "/showcase" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "Engineering Journey", href: "/journey" },
     { label: "Technical Expertise", href: "/expertise" },
-    { label: "Case Studies", href: "/case-studies" },
     { label: "Leadership", href: "/leadership" },
     { label: "Architecture", href: "/architecture" },
     { label: "AI Engineering", href: "/ai-engineering" },
   ],
   credentials: [
     { label: "Achievements", href: "/achievements" },
-    { label: "Certifications", href: "/certifications" },
+    { label: "Education", href: "/education" },
     { label: "Resume", href: "/resume" },
   ],
   contact: [

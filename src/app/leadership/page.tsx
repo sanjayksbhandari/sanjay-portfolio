@@ -29,7 +29,7 @@ import { buildBreadcrumbTrail } from "@/lib/seo/breadcrumbs";
 export const metadata: Metadata = buildMetadata({
   title: "Technical Leadership & Engineering Philosophy",
   description:
-    "How team leadership, mentoring, delivery, stakeholder collaboration, and architectural decision-making actually show up across nine years of running Opal BPM's engineering — not a leadership-poster list.",
+    "How I practiced team leadership, mentoring, delivery, stakeholder collaboration, and architectural decision-making — growing from Senior Java Developer into leading a 5–7 developer team during the last five years of nearly a decade at Opal BPM.",
   path: "/leadership",
 });
 
@@ -79,14 +79,14 @@ export default function LeadershipPage() {
           breadcrumbItems={visualItems}
           kicker="Technical Leadership & Engineering Philosophy"
           title="How the team, the delivery, and the decisions actually got run."
-          intro="How technical leadership showed up in one verified role: growing from Opal BPM's second engineering hire into leading its platform and a 5–7 developer team over nine-plus years."
-          meta={["9 years, 7 months in a leadership role", "5–7 developers led"]}
+          intro="I spent nearly 10 years at Opal BPM, where I started as a Senior Java Developer and progressively took on technical leadership responsibilities. During the last five years of my tenure, I led a team of 5–7 developers while continuing to contribute hands-on to architecture and backend development."
+          meta={["5+ years in a technical leadership role", "5–7 developers led"]}
         />
 
         <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
-          <FactCard label="Grew from" value="Second engineering hire → Lead Java Developer" />
-          <FactCard label="Team led" value="5–7 developers" />
-          <FactCard label="Tenure in the role" value="Sep 2015 – Apr 2025" />
+          <FactCard label="Started as" value="Senior Java Developer → Lead Java Developer" />
+          <FactCard label="Team led" value="5–7 developers (last ~5 years)" />
+          <FactCard label="Opal BPM tenure" value="Sep 2015 – Apr 2025 · 9y 7m" />
         </div>
 
         <div className="lg:hidden">
@@ -140,8 +140,8 @@ export default function LeadershipPage() {
           <SectionHeader sectionId="mentoring" title="Mentoring & Team Growth" />
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-neutral-600">
             Direct mentoring and code-review-based standards are verified for the 5–7 developer team
-            at Opal BPM; the onboarding process and design-discussion format aren&rsquo;t documented
-            in Sanjay&rsquo;s own words yet.
+            I led during the last five years at Opal BPM; the onboarding process and
+            design-discussion format aren&rsquo;t documented in my own words yet.
           </p>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {principleById("mentoring")}
@@ -153,11 +153,11 @@ export default function LeadershipPage() {
           <TodoNote
             className="mt-8 max-w-xl"
             items={[
-              { label: "Developer onboarding process, in your own words" },
+              { label: "Developer onboarding process, in my own words" },
               {
                 label: "Knowledge-sharing practices beyond code review (docs, pairing, brown-bags)",
               },
-              { label: "Format of design discussions you run or participate in" },
+              { label: "Format of design discussions I run or participate in" },
             ]}
           />
         </section>
@@ -185,7 +185,7 @@ export default function LeadershipPage() {
             className="mt-8 max-w-xl"
             items={[
               {
-                label: "Release-planning cadence and roadmap-execution process, in your own words",
+                label: "Release-planning cadence and roadmap-execution process, in my own words",
               },
               { label: "QA/testing methodology used to keep delivery quality high" },
               { label: "Specific risk-management practices for production changes" },
@@ -252,9 +252,9 @@ export default function LeadershipPage() {
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-medium text-neutral-800">Ownership.</strong> Joined Opal BPM
-                as its second engineering hire and stayed through its Lead Java Developer role for
-                nine-plus years — sustained ownership of one platform, not a series of shorter
+                <strong className="font-medium text-neutral-800">Ownership.</strong> I spent nearly
+                10 years at Opal BPM — joining as a Senior Java Developer and growing into Lead Java
+                Developer — with sustained ownership of one platform, not a series of shorter
                 engagements.
               </span>
             </li>
@@ -293,7 +293,7 @@ export default function LeadershipPage() {
           <TodoNote
             className="mt-8 max-w-xl"
             items={[
-              { label: "Documentation practices used for the team/codebase, in your own words" },
+              { label: "Documentation practices used for the team/codebase, in my own words" },
               {
                 label:
                   "How continuous learning was supported for the team (training, conference budget, internal talks)",

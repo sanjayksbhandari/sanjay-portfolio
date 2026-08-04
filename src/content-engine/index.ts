@@ -22,3 +22,4 @@ export * from "./leadership";
 export * from "./ai-engineering";
 export * from "./capabilities";
 export * from "./professional-hub";
+export * from "./education";

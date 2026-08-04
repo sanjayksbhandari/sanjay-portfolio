@@ -78,7 +78,7 @@ export function buildSearchIndex(): SearchDocument[] {
     type: "certification",
     title: certification.name,
     description: certification.issuer,
-    url: "/certifications",
+    url: "/education",
   }));
 
   const leadershipDocs: SearchDocument[] = getAllLeadershipPrinciples().map((principle) => ({

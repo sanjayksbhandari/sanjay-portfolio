@@ -30,7 +30,7 @@ import { site } from "@/config/site";
 export const metadata: Metadata = buildMetadata({
   title: "Engineering Journey",
   description:
-    "17+ years of Java engineering told as a narrative — from Comnet Innovations and PC Solutions through TeamLease, to nearly a decade architecting Opal BPM's platform as its second employee.",
+    "My 17+ years of Java engineering as a narrative — from Comnet Innovations and PC Solutions through TeamLease, to nearly a decade at Opal BPM progressing from Senior Java Developer into Lead Java Developer.",
   path: "/journey",
 });
 
@@ -87,7 +87,7 @@ export default function JourneyPage() {
           breadcrumbItems={visualItems}
           kicker="Engineering Journey"
           title={`${spellCount(companyCount)} companies, one continuous line of increasing ownership.`}
-          intro={`Not a resume — a short account of how the scope of the work, the size of the systems, and the amount of leadership changed across ${profiles.length} verified roles over 17+ years, from Software Programmer through Lead Java Developer, culminating in architecting and leading Opal BPM's platform as its second employee.`}
+          intro={`Not a resume — a short account of how my scope of work, the systems I owned, and the leadership I took on changed across ${profiles.length} verified roles over 17+ years, from Software Programmer through Senior Java Developer into Lead Java Developer at Opal BPM — where I led a team of 5–7 developers during the last five years of a 9-year, 7-month tenure.`}
           meta={[
             `${site.yearsExperience} years`,
             `${profiles.length} verified roles`,

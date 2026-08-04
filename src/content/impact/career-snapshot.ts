@@ -6,7 +6,7 @@ export const careerSnapshot: CareerFact[] = [
   {
     id: "most-recent-role",
     label: "Most recent role",
-    value: "Lead Java Developer, Opal BPM (Sep 2015 – Apr 2025)",
+    value: "Senior → Lead Java Developer, Opal BPM (Sep 2015 – Apr 2025)",
   },
   {
     id: "total-experience",
@@ -26,8 +26,8 @@ export const careerSnapshot: CareerFact[] = [
   },
   {
     id: "leadership",
-    label: "Leadership",
-    value: "5–7 developers mentored directly",
+    label: "Technical leadership",
+    value: "5–7 developers led (last ~5 years at Opal)",
   },
   {
     id: "location",

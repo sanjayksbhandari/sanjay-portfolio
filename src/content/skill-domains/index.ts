@@ -21,7 +21,7 @@ export const expertiseGroups: ExpertiseGroup[] = [
     id: "security-identity",
     label: "Security & Identity",
     description:
-      "Led the design and rollout of an OAuth2-based authentication and authorization system across multiple production client deployments.",
+      "I led the design and rollout of an OAuth2-based authentication and authorization system across multiple production client deployments.",
     items: ["OAuth2", "JWT"],
   },
   {
@@ -42,7 +42,7 @@ export const expertiseGroups: ExpertiseGroup[] = [
     id: "leadership-practice",
     label: "Leadership Practice",
     description:
-      "Mentored teams of 5–7 developers and drove architecture/code-review standards at Opal BPM — see the Leadership page for the practices behind each of these.",
+      "During the last five years at Opal BPM, I mentored a team of 5–7 developers and drove architecture/code-review standards — see the Leadership page for the practices behind each of these.",
     items: [
       "Team Leadership",
       "Mentoring",
